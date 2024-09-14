@@ -2,8 +2,10 @@ import numpy as np
 import scipy.linalg as la
 from IPython.display import display,Markdown,Latex
 import matplotlib.pyplot as plt
-from qiskit.visualization import array_to_latex
+from qiskit.tools.visualization import array_to_latex
 import copy 
+
+
 
 
 ##############################################################################################################
