@@ -242,7 +242,7 @@ def dist_to_counts(prob_dist,n,nshots): #n is the number of qubits
 ##############################################################################################
 # función que calcula el valor esperado de ZZ..Z para un circuito de n cúbits 
 
-def expval_Zn_from_counts(counts):
+def expval_from_counts(counts):
     probs = get_probs(counts)
 #    print(probs)
     
