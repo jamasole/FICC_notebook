@@ -242,7 +242,7 @@ def dist_to_counts(prob_dist,n,nshots): #n is the number of qubits
 ##############################################################################################
 # función que calcula el valor esperado de ZZ..Z para un circuito de n cúbits 
 
-def expval_from_counts(counts):
+def mean_from_counts(counts):
     probs = get_probs(counts)
 #    print(probs)
     
@@ -309,8 +309,8 @@ def measure_in_basis(qc,axis="Z",shots=1024):
     counts=execute(qc0,backend=Aer.get_backend('qasm_simulator'),shots=shots).result().get_counts()
     return counts
 
-# funcion que incorpora un funcion binaria como una puerta partir de una tabla de valores de salida 
 
+# funcion que incorpora un funcion binaria como un circuito a partir de una tabla de valores de salida 
 def binary_function(f_outputs): 
  
     from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
@@ -351,6 +351,7 @@ def binary_function(f_outputs):
 # funcion genera una transformada de Fourier Cuántica
 
 def TFC(n):
+    from qiskit import QuantumCircuit
     qc = QuantumCircuit(n)    
 
     for j in reversed(range(n)):
@@ -363,6 +364,7 @@ def TFC(n):
     return qc.to_gate(label='TFC')
         
 def TFC_adj(n):
+    from qiskit import QuantumCircuit
     qc = QuantumCircuit(n)    
 
     for j in reversed(range(n//2)):
@@ -379,3 +381,6 @@ def swap_registers(circuit, n):
     for qubit in range(n//2):
         circuit.swap(qubit, n-qubit-1)
     return circuit
+
+""
+
